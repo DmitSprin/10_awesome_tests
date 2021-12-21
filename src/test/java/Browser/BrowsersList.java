@@ -11,9 +11,6 @@ public interface BrowsersList {
 
 }
 
-
-
-
     class ChromeDriverBrowser implements BrowsersList{
 
         @Override

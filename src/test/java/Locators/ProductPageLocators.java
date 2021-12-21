@@ -8,8 +8,6 @@ import java.util.List;
 
 public class ProductPageLocators {
 
-
-
     @FindBy(xpath = "//div[contains(@class,'md-description')] //h5")
     List<WebElement> products;
 
@@ -19,20 +17,17 @@ public class ProductPageLocators {
     @FindBy(xpath = "//a[@class='df aic jcsb'] //div")
     List<WebElement> categories;
 
-
     @FindBy(xpath = "//div[contains(@class ,'add-favorire')]")
     WebElement addToWishList;
 
     @FindBy(xpath = "//a[contains(@class,'submenu')]")
     List<WebElement> subCategories;
 
-
     @FindBy(xpath = "//div[contains(@class,'grid')] //div[contains(@class,'content')]")
     WebElement orderConfirm;
 
     @FindBy(xpath = "//button[contains(@class,'uppercase medium df buyButton')]")
     WebElement buyButton;
-
 
     public List<WebElement>  getProducts() {return products;}
 

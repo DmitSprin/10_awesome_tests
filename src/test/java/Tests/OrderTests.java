@@ -1,5 +1,6 @@
 package Tests;
 
+import Browser.BrowserСhoice;
 import Pages.BasePage;
 import Pages.LoginPage;
 import Pages.ProductPage;
@@ -7,12 +8,11 @@ import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.List;
-
 import static Tests.TestRunner.loadApplication;
+
 
 public class OrderTests {
 
@@ -34,14 +34,13 @@ public class OrderTests {
 
  }
 
-
     @DataProvider(name = "new user")
     public Object[][] getNewUser() {;
         return new Object[][]{{UserRepo.createNewUser()}
         };
     }
-    //  unstable test
 
+    //  unstable test
     @Test(dataProvider = "new user")
     public void addProductToWishList(User user) throws InterruptedException {
         BasePage basePage = loadApplication();
@@ -57,9 +56,10 @@ public class OrderTests {
 
      Assert.assertEquals(numberOfProducts,"1");
 
-
+    }
+    @AfterTest(alwaysRun = true )
+    public void tearDown(){
+        BrowserСhoice.closeBrowser();
 
     }
-
-
 }

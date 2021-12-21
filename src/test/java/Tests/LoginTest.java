@@ -1,11 +1,13 @@
 package Tests;
 
+import Browser.BrowserСhoice;
 import Pages.BasePage;
 import Pages.LoginPage;
 
 import UserDao.User;
 import UserDao.UserRepo;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,9 +21,6 @@ public class LoginTest  {
         };
     }
 
-
-
-
     @Test(dataProvider = "exist user")
     public void loginByPhone(User user){
         BasePage basePage = loadApplication();
@@ -30,9 +29,8 @@ public class LoginTest  {
         String phone =  loginPage.getTextFromMobileMessageEntrance();
         System.out.println(phone);
         Assert.assertTrue(phone.contains(user.getPhone()));
-
-
     }
+
     @Test(dataProvider = "exist user")
     public void loginByEmail(User user){
 
@@ -42,6 +40,9 @@ public class LoginTest  {
         Assert.assertEquals(name,user.getName());
 
     }
+    @AfterTest(alwaysRun = true )
+    public void tearDown(){
+        BrowserСhoice.closeBrowser();
 
-
+    }
 }

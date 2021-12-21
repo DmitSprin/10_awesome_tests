@@ -1,18 +1,19 @@
 package Tests;
 
+import Browser.BrowserСhoice;
 import Pages.BasePage;
 import Pages.LoginPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static Tests.TestRunner.loadApplication;
 
 public class RegisterTest {
-
 
     @DataProvider(name = "new user")
     public Object[][] getNewUser() {;
@@ -30,9 +31,6 @@ public class RegisterTest {
        String name =  loginPage.getAccountNameText();
         Assert.assertEquals(name,user.getName());
     }
-
-
-
 
     @DataProvider(name = "exist user")
     public Object[][] getExistUser() {;
@@ -52,6 +50,9 @@ public class RegisterTest {
         Assert.assertEquals(name,user.getName());
 
     }
+    @AfterTest(alwaysRun = true )
+    public void tearDown(){
+        BrowserСhoice.closeBrowser();
 
-
+    }
 }

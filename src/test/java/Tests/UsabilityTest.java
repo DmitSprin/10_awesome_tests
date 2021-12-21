@@ -2,14 +2,10 @@ package Tests;
 
 import Browser.BrowserСhoice;
 import Pages.BasePage;
-
 import Utils.JsCod;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-
-import java.awt.*;
-
 import static Tests.TestRunner.loadApplication;
 
 public class UsabilityTest {
@@ -23,13 +19,16 @@ public class UsabilityTest {
 
     }
 
-
     @Test()
     public void testScrollerPage(){
         BasePage basePage = loadApplication();
         JsCod.scrollDown();
         basePage.clickOnScrollButton();
+    }
 
+    @AfterTest(alwaysRun = true )
+    public void tearDown(){
+        BrowserСhoice.closeBrowser();
 
     }
 }

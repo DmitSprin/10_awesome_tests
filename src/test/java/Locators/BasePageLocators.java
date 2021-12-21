@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class BasePageLocators {
 
-
-
     @FindBy(xpath = "//span[@class='ml8 dashed-text']")
     private WebElement loginButton;
 
@@ -26,16 +24,11 @@ public class BasePageLocators {
     @FindBy(xpath = " //a[@href='/uk/']")
     private WebElement Language;
 
-
     @FindBy(xpath = "//input[@type='text'] ")
     private WebElement topSearch;
 
-
     @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')] //div[@class='pr']")
     private  WebElement wishCount;
-
-
-
 
     public WebElement getScrollButton() {return scrollButton;}
 
@@ -58,7 +51,6 @@ public class BasePageLocators {
     public WebElement getBasket() {
         return basket;
     }
-
 
     public WebElement getWishCount() {return wishCount;}
 

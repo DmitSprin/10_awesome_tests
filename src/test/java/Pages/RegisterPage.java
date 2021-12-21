@@ -15,12 +15,10 @@ public class RegisterPage {
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
     }
 
-
-
     public void sendNameInRegisterField(User user){
         registerPageLocator.getRegisterFieldForName().sendKeys(user.getName());
-
     }
+
     public void  sendEmailInRegisterField(User user){
         registerPageLocator.getRegisterFieldForEmail().sendKeys(user.getEmail());
     }
@@ -39,14 +37,12 @@ public class RegisterPage {
 
     //Business logics
 
-
     public RegisterPage registerNewUser(User dao){
         sendEmailInRegisterField(dao);
         sendNameInRegisterField(dao);
         sendPasswordInRegisterField(dao);
         sendPhoneInRegisterField(dao);
         clickOnRegisterButton();
-
         return  new RegisterPage();
     }
 

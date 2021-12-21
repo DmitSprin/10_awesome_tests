@@ -5,27 +5,20 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPageLocator extends BasePageLocators {
 
-
-
     @FindBy(xpath = "//input[@name='phone']")
     WebElement entryFieldByLoginByPhone;
-
 
     @FindBy(xpath = "//span[contains(@class, 'dashed-text autorizeName')]")
     WebElement account;
 
-
     @FindBy(xpath = "//input[@name='password']")
     WebElement passwordFormForLogin;
-
 
     @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //p")
     WebElement mobileMessageEntrance;
 
-
     @FindBy(xpath = "//input[@name ='code']")
     WebElement fieldForMessageVerification;
-
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement loginByPhone;
@@ -33,18 +26,11 @@ public class LoginPageLocator extends BasePageLocators {
     @FindBy(xpath = "//div[@class='full-height df fdc jcc']//button[@type='button']")
     WebElement loginByEmail;
 
-
-
     @FindBy(xpath = "//input[@name='email']")
     WebElement entryFieldByLoginByEmail;
 
-
     @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //a[@class='link']")
     WebElement registeringButton;
-
-
-
-
 
     public WebElement getEntryFieldByLoginByPhone() {
         return entryFieldByLoginByPhone;

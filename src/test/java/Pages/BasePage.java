@@ -15,14 +15,11 @@ public class BasePage {
     Actions builder = new Actions(BrowserСhoice.getDriver());
 
 
-
-
     public BasePage(){
 
         PageFactory.initElements(BrowserСhoice.getDriver(), locators);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
     }
-
 
     public void clickOnLoginButton(){
         locators.getLoginButton().click();
@@ -32,20 +29,17 @@ public class BasePage {
         locators.getWishList().click();
     }
 
-   public void moveMouseToCatalogBar(){
+    public void moveMouseToCatalogBar(){
 
        builder.moveToElement(locators.getCatalog());
-   }
+    }
 
-   public void changeLanguage(){locators.getLanguage().click();}
+     public void changeLanguage(){locators.getLanguage().click();}
 
-
-    public void sendProductNameInTopSearch(String st){
-
+     public void sendProductNameInTopSearch(String st){
         locators.getTopSearch().sendKeys(st);
         locators.getTopSearch().sendKeys(Keys.ENTER);
     }
-
 
   public  String getUrl(){
        return BrowserСhoice.getDriver().getCurrentUrl();
@@ -55,28 +49,22 @@ public class BasePage {
        return locators.getWishList().getText();
   }
 
-
   public void clickOnScrollButton(){
         locators.getScrollButton().click();
   }
 
-
     public BasePage click(){
-
         locators.getBasket().click();
         return new BasePage();
     }
-
 
     public LoginPage goToLoginPage(){
         clickOnLoginButton();
         return new LoginPage();
     }
 
-
     public ProductPage searchProductInTopSearch(String product){
         sendProductNameInTopSearch(product);
-
         return new ProductPage();
     }
 

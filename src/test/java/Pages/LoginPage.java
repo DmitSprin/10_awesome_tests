@@ -15,11 +15,8 @@ public class LoginPage  {
 LoginPageLocator loginPageLocator = new LoginPageLocator();
 
 LoginPage(){
-
     PageFactory.initElements(BrowserСhoice.getDriver(),loginPageLocator);
     BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
-
-
 }
 
 public void  clickOnLoginButton(){
@@ -32,19 +29,18 @@ public void sendDataInNumberField(User user){
 
 
 public String getTextFromMobileMessageEntrance(){
-
     return loginPageLocator.getMobileMessageEntrance().getText();
 }
 
 
 public void sendTextIntoEmailRegisterForm(User dao){
-
     loginPageLocator.getEntryFieldByLoginByEmail().sendKeys(dao.getEmail());
 }
 
 public void clickOnLoginByEmail(){
     loginPageLocator.getLoginByEmail().click();
 }
+
 public void sendPasswordInPasswordField(User user){
     loginPageLocator.getPasswordFormForLogin().sendKeys(user.getPassword());
 }
@@ -56,7 +52,6 @@ public void sendPasswordInPasswordField(User user){
   public String getAccountNameText(){
     return loginPageLocator.getAccount().getText();
   }
-
 
 // Business logics
 public LoginPage loginByPhoneNumber(User dao){
@@ -72,15 +67,12 @@ public LoginPage loginByEmailNumber(User dao){
     clickOnLoginButton();
     sendPasswordInPasswordField(dao);
     clickOnLoginButton();
-
-
     return new LoginPage();
 
-
 }
+
 public  RegisterPage goToRegisterPage(){
     loginPageLocator.getRegisteringButton().click();
-
     return new RegisterPage();
 }
 

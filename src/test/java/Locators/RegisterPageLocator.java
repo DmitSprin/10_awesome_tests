@@ -5,9 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class RegisterPageLocator {
 
-
-
-
     @FindBy(xpath = "//input[@name = 'name']")
     WebElement registerFieldForName;
 
@@ -22,7 +19,6 @@ public class RegisterPageLocator {
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement registerButton;
-
 
     public WebElement getRegisterFieldForName() {return registerFieldForName;}
 
