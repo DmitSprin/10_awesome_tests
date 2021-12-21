@@ -20,6 +20,9 @@ public class ProductPageLocators {
     List<WebElement> categories;
 
 
+    @FindBy(xpath = "//div[contains(@class ,'add-favorire')]")
+    WebElement addToWishList;
+
     @FindBy(xpath = "//a[contains(@class,'submenu')]")
     List<WebElement> subCategories;
 
@@ -42,4 +45,6 @@ public class ProductPageLocators {
     public WebElement getBuyButton() {return buyButton;}
 
     public WebElement getOrderConfirm() {return orderConfirm;}
+
+    public WebElement getAddToWishList() {return addToWishList;}
 }

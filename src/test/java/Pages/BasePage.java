@@ -51,6 +51,14 @@ public class BasePage {
        return BrowserСhoice.getDriver().getCurrentUrl();
   }
 
+  public String getNumberFomWishList(){
+       return locators.getWishList().getText();
+  }
+
+
+  public void clickOnScrollButton(){
+        locators.getScrollButton().click();
+  }
 
 
     public BasePage click(){

@@ -40,24 +40,22 @@ public class OrderTests {
         return new Object[][]{{UserRepo.createNewUser()}
         };
     }
+    //  unstable test
 
     @Test(dataProvider = "new user")
-    public void addProductToWishList(User user) {
+    public void addProductToWishList(User user) throws InterruptedException {
         BasePage basePage = loadApplication();
 
+        ProductPage productPage = basePage.moveToCatalog();
+        productPage.choiceСategoryAndSubCategory("Смартфоны","Apple");;
+        productPage.clickOmFirstProduct();
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
-        ProductPage productPage = basePage.moveToCatalog();
-        productPage.choiceСategory("Смартфоны");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        productPage.moveToSubMenu("Apple");
-        productPage.clickOmFirstProduct();
-        productPage.clickOnBuyButton();
+        productPage.addToWishListButton();
+     String numberOfProducts =  basePage.getNumberFomWishList();
+
+     Assert.assertEquals(numberOfProducts,"1");
 
 
 

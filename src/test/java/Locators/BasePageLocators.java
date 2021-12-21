@@ -20,20 +20,24 @@ public class BasePageLocators {
     @FindBy(xpath = "//div[contains(@class,'dib df basket')]")
     private WebElement basket;
 
-
+    @FindBy(xpath = "//div[contains(@class,'scrollButton')]")
+    private WebElement scrollButton;
 
     @FindBy(xpath = " //a[@href='/uk/']")
-    WebElement Language;
+    private WebElement Language;
 
 
     @FindBy(xpath = "//input[@type='text'] ")
     private WebElement topSearch;
 
 
+    @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')] //div[@class='pr']")
+    private  WebElement wishCount;
 
 
 
 
+    public WebElement getScrollButton() {return scrollButton;}
 
     public WebElement getLanguage() {return Language;}
 
@@ -54,6 +58,9 @@ public class BasePageLocators {
     public WebElement getBasket() {
         return basket;
     }
+
+
+    public WebElement getWishCount() {return wishCount;}
 
 
 

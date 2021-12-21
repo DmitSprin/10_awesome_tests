@@ -62,6 +62,13 @@ public class ProductPage {
         return products;
 
     }
+
+
+    public void addToWishListButton(){
+        productPageLocators.getAddToWishList().click();
+    }
+
+
 public void moveToSubMenu(String subProd){
 
 
