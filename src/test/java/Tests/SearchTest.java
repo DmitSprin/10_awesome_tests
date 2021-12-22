@@ -1,16 +1,15 @@
 package Tests;
 
-import Browser.BrowserСhoice;
-import Pages.BasePage;
+
+import Pages.MainPage;
 import Pages.ProductPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.util.List;
-import static Tests.TestRunner.loadApplication;
 
-public class SearchTest {
+
+public class SearchTest extends TestRunner {
 
     @DataProvider(name = "products")
     public Object[][] products() {
@@ -20,13 +19,12 @@ public class SearchTest {
 
     @Test(dataProvider = "products")
     public void searchWithText(String prod){
-
-        BasePage basePage = loadApplication();
+        MainPage basePage = loadApplication();
         ProductPage productPage = basePage.searchProductInTopSearch(prod);
-     List<String> products = productPage.findAllProducts();
-     List<String> sortedProduct =  products.stream().filter(x->x.contains(prod)).toList();
+        List<String> products = productPage.findAllProducts();
+        List<String> sortedProduct =  products.stream().filter(x->x.contains(prod)).toList();
         assert (sortedProduct.size()!= 0);
-     Assert.assertEquals(sortedProduct.size(),products.size());
+        Assert.assertEquals(sortedProduct.size(),products.size());
     }
 
     @DataProvider(name = "products name")
@@ -36,17 +34,11 @@ public class SearchTest {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod){
-
-        BasePage basePage = loadApplication();
+        MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);
         String productName = productPage.getNameFromFirstProduct();
         Assert.assertTrue(productName.contains(prod));
     }
 
-    @AfterTest(alwaysRun = true )
-    public void tearDown(){
-        BrowserСhoice.closeBrowser();
-
-    }
 }

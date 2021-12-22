@@ -1,7 +1,6 @@
 package Browser;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrowserСhoice {
 
@@ -14,10 +13,7 @@ public class BrowserСhoice {
             setDriver(BrowserFactory.DEFAULT_BROWSER);
 
         }
-
             return driver;
-
-
     }
 
 
@@ -28,6 +24,7 @@ public class BrowserСhoice {
     }
 
     public static void closeBrowser(){
+        driver.manage().deleteAllCookies();
         driver.quit();
     }
 

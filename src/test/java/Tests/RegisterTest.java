@@ -1,19 +1,17 @@
 package Tests;
 
-import Browser.BrowserСhoice;
-import Pages.BasePage;
+
+import Pages.MainPage;
 import Pages.LoginPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static Tests.TestRunner.loadApplication;
 
-public class RegisterTest {
+public class RegisterTest extends TestRunner {
 
     @DataProvider(name = "new user")
     public Object[][] getNewUser() {;
@@ -23,12 +21,11 @@ public class RegisterTest {
 
     @Test(dataProvider = "new user")
     public void createNewUser(User user) {
-        BasePage basePage = loadApplication();
-
+        MainPage basePage = loadApplication();
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
-       String name =  loginPage.getAccountNameText();
+        String name =  loginPage.getAccountNameText();
         Assert.assertEquals(name,user.getName());
     }
 
@@ -41,18 +38,12 @@ public class RegisterTest {
     //Negative test
     @Test(dataProvider = "exist user")
     public void createNewUserWithWrongCredential(User user){
-        BasePage basePage = loadApplication();
-
+        MainPage basePage = loadApplication();
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         String name =  loginPage.getAccountNameText();
         Assert.assertEquals(name,user.getName());
-
-    }
-    @AfterTest(alwaysRun = true )
-    public void tearDown(){
-        BrowserСhoice.closeBrowser();
 
     }
 }

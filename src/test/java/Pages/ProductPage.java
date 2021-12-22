@@ -26,6 +26,7 @@ public class ProductPage {
     public String getNameFromFirstProduct(){
        return productPageLocators.getFirstProductOnPage().getText();
     }
+
     public void clickOmFirstProduct(){
         productPageLocators.getFirstProductOnPage().click();
     }

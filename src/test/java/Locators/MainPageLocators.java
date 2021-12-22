@@ -1,10 +1,10 @@
 package Locators;
 
-import Pages.LoginPage;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BasePageLocators {
+public class MainPageLocators {
 
     @FindBy(xpath = "//span[@class='ml8 dashed-text']")
     private WebElement loginButton;

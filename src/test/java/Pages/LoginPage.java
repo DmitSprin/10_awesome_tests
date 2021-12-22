@@ -2,10 +2,7 @@ package Pages;
 
 import Browser.BrowserСhoice;
 import Locators.LoginPageLocator;
-
-
 import UserDao.User;
-import UserDao.UserRepo;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;

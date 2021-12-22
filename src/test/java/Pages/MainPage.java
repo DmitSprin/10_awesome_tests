@@ -1,21 +1,18 @@
 package Pages;
 
 import Browser.BrowserСhoice;
-import Locators.BasePageLocators;
+import Locators.MainPageLocators;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.devtools.v85.indexeddb.model.Key;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-
-import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
-public class BasePage {
-    BasePageLocators locators = new BasePageLocators();
+public class MainPage {
+    MainPageLocators locators = new MainPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
 
 
-    public BasePage(){
+    public MainPage(){
 
         PageFactory.initElements(BrowserСhoice.getDriver(), locators);
         BrowserСhoice.getDriver().manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
@@ -30,11 +27,11 @@ public class BasePage {
     }
 
     public void moveMouseToCatalogBar(){
-
        builder.moveToElement(locators.getCatalog());
     }
 
-     public void changeLanguage(){locators.getLanguage().click();}
+     public void changeLanguage(){
+        locators.getLanguage().click();}
 
      public void sendProductNameInTopSearch(String st){
         locators.getTopSearch().sendKeys(st);
@@ -53,9 +50,9 @@ public class BasePage {
         locators.getScrollButton().click();
   }
 
-    public BasePage click(){
+    public MainPage click(){
         locators.getBasket().click();
-        return new BasePage();
+        return new MainPage();
     }
 
     public LoginPage goToLoginPage(){

@@ -3,7 +3,7 @@ package Locators;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPageLocator extends BasePageLocators {
+public class LoginPageLocator extends MainPageLocators {
 
     @FindBy(xpath = "//input[@name='phone']")
     WebElement entryFieldByLoginByPhone;

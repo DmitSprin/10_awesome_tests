@@ -1,20 +1,19 @@
 package Tests;
 
-import Browser.BrowserСhoice;
-import Pages.BasePage;
+
+import Pages.MainPage;
 import Pages.LoginPage;
 import Pages.ProductPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import static Tests.TestRunner.loadApplication;
 
 
-public class OrderTests {
+
+public class OrderTests extends  TestRunner {
 
     @DataProvider(name = "products name")
     public Object[][] productsName() {
@@ -23,8 +22,7 @@ public class OrderTests {
 
     @Test(dataProvider = "products name")
     public void searchWithCatalog(String cat, String subCat, String prod){
-
-        BasePage basePage = loadApplication();
+        MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);
         productPage.clickOmFirstProduct();
@@ -43,8 +41,7 @@ public class OrderTests {
     //  unstable test
     @Test(dataProvider = "new user")
     public void addProductToWishList(User user) throws InterruptedException {
-        BasePage basePage = loadApplication();
-
+        MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфоны","Apple");;
         productPage.clickOmFirstProduct();
@@ -52,14 +49,8 @@ public class OrderTests {
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         productPage.addToWishListButton();
-     String numberOfProducts =  basePage.getNumberFomWishList();
-
-     Assert.assertEquals(numberOfProducts,"1");
-
-    }
-    @AfterTest(alwaysRun = true )
-    public void tearDown(){
-        BrowserСhoice.closeBrowser();
+        String numberOfProducts =  basePage.getNumberFomWishList();
+        Assert.assertEquals(numberOfProducts,"1");
 
     }
 }
