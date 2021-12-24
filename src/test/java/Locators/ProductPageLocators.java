@@ -15,7 +15,7 @@ public class ProductPageLocators {
     @FindBy(xpath = "//a[@class='df aic jcsb'] //div")
     List<WebElement> categories;
 
-    @FindBy(xpath = "//div[contains(@class ,'add-favorire')]")
+    @FindBy(xpath = "//*[contains(@class ,'icon add-favorire icon')]")
     WebElement addToWishList;
 
     @FindBy(xpath = "//a[contains(@class,'submenu')]")

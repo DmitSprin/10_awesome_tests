@@ -45,12 +45,13 @@ public class OrderTests extends  TestRunner {
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфоны","Apple");;
         productPage.clickOmFirstProduct();
+        Thread.sleep(1000);
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
+        Thread.sleep(3000);
         productPage.addToWishListButton();
         String numberOfProducts =  basePage.getNumberFomWishList();
         Assert.assertEquals(numberOfProducts,"1");
-
     }
 }

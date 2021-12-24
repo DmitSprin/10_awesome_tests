@@ -3,11 +3,9 @@ package Pages;
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +26,7 @@ public class ProductPage {
     }
 
     public void clickOmFirstProduct(){
+        builder.moveToElement(productPageLocators.getFirstProductOnPage()).build().perform();
         productPageLocators.getFirstProductOnPage().click();
     }
 
@@ -42,14 +41,8 @@ public class ProductPage {
     }
 
     public List<String> findAllProducts() {
-        List<String> products = new ArrayList<>();
         strategy.waitForElements(productPageLocators.getProducts());
-        for (int i = 0; i < productPageLocators.getProducts().size(); i++) {
-
-            products.add(productPageLocators.getProducts().get(i).getText());
-        }
-        return products;
-
+        return productPageLocators.getProducts().stream().map(WebElement::getText).toList();
     }
 
     public void addToWishListButton(){
@@ -57,36 +50,23 @@ public class ProductPage {
     }
 
 public void moveToSubMenu(String subProd){
-
-    for(int i = 0; i < productPageLocators.getSubCategories().size(); i++){
-        if(productPageLocators.getSubCategories().get(i).getText().contains(subProd)){
-            productPageLocators.getSubCategories().get(i).click();
-          break;
-        }
+        List<WebElement> subCategories = productPageLocators.getSubCategories();
+       List<WebElement> subCategoriesSorted =
+               subCategories.stream().filter(x->x.getText().contains(subProd)).toList();
+          subCategoriesSorted.stream().findFirst().get().click();
 
     }
 
-}
-
-    public void    choiceСategory(String cat) {
-        for (int i = 0; i < productPageLocators.getCategories().size(); i++) {
-            if (productPageLocators.getCategories().get(i).getText().contains(cat)) {
-
-                builder.moveToElement(productPageLocators.getCategories().get(i)).build().perform();
-
-            }
-
-        }
+    public void choiceСategory(String cat) {
+        List<WebElement> allCategories =  productPageLocators.getCategories();
+        allCategories.stream().filter(x->x.getText().contains(cat))
+                .forEach(x->builder.moveToElement(x).build().perform());
     }
 
-    public void    choiceСategoryAndSubCategory(String cat,String sub) {
-        for (int i = 0; i < productPageLocators.getCategories().size(); i++) {
-            if (productPageLocators.getCategories().get(i).getText().contains(cat)) {
-
-                builder.moveToElement(productPageLocators.getCategories().get(i)).build().perform();
-
-            }
-        }
+    public void choiceСategoryAndSubCategory(String cat,String sub) {
+        List<WebElement> allCategories =  productPageLocators.getCategories();
+         allCategories.stream().filter(x->x.getText().contains(cat))
+                .forEach(x->builder.moveToElement(x).build().perform());
         moveToSubMenu(sub);
 
     }

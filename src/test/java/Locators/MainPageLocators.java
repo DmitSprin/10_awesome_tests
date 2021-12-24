@@ -9,7 +9,7 @@ public class MainPageLocators {
     @FindBy(xpath = "//span[@class='ml8 dashed-text']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//a[contains(@class ,'dn aic jcc favorites')]")
+    @FindBy(xpath = "//a[contains(@class ,'dn aic jcc favorites')] //div[contains(@class,'df aic jcc pa badge')]")
     private WebElement wishList;
 
     @FindBy(xpath = "//div[@class='menu--desktop__title']")
@@ -40,9 +40,7 @@ public class MainPageLocators {
         return loginButton;
     }
 
-    public WebElement getWishList() {
-        return wishList;
-    }
+    public WebElement getWishList() {return wishList;}
 
     public WebElement getCatalog() {
         return catalog;

@@ -7,7 +7,6 @@ import Pages.MainPage;
 import org.testng.annotations.AfterMethod;
 
 
-
 public class TestRunner {
     final static String baseUrl = "https://www.citrus.ua/";
 

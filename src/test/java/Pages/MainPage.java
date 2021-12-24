@@ -20,6 +20,7 @@ public class MainPage {
 
     public void clickOnLoginButton(){
         locators.getLoginButton().click();
+        BrowserСhoice.getDriver();
     }
 
     public void clickOnWishList(){

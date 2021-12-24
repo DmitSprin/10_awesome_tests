@@ -17,6 +17,7 @@ public class ExplicitStrategy {
    public void waitForElement(WebElement element)  {
       wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
     public void waitForElements(List<WebElement> element)  {
         wait.until(ExpectedConditions.invisibilityOfAllElements(element));
     }
