@@ -7,6 +7,9 @@ import Pages.ProductPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,7 +24,9 @@ public class OrderTests extends  TestRunner {
     }
 
     @Test(dataProvider = "products name")
-    public void searchWithCatalog(String cat, String subCat, String prod){
+    @Description("this test confirms the possibility of ordering a product")
+    @Severity(SeverityLevel.BLOCKER)
+    public void orderProductTest(String cat, String subCat, String prod){
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);
@@ -40,6 +45,8 @@ public class OrderTests extends  TestRunner {
 
     //  unstable test
     @Test(dataProvider = "new user")
+    @Description("this test checks the ability to add a product to wishlist")
+    @Severity(SeverityLevel.NORMAL)
     public void addProductToWishList(User user) throws InterruptedException {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();

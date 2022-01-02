@@ -6,6 +6,9 @@ import Pages.LoginPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -20,6 +23,8 @@ public class RegisterTest extends TestRunner {
     }
 
     @Test(dataProvider = "new user")
+    @Description("this test checks the ability to register a new user")
+    @Severity(SeverityLevel.CRITICAL)
     public void createNewUser(User user) {
         MainPage basePage = loadApplication();
         LoginPage loginPage = basePage.goToLoginPage();
@@ -35,8 +40,11 @@ public class RegisterTest extends TestRunner {
         };
     }
 
+
     //Negative test
     @Test(dataProvider = "exist user")
+    @Description("this test checks the impossibility of registering a new user with an existing email")
+    @Severity(SeverityLevel.CRITICAL)
     public void createNewUserWithWrongCredential(User user){
         MainPage basePage = loadApplication();
         LoginPage loginPage = basePage.goToLoginPage();
