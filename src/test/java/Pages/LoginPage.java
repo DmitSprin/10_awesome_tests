@@ -22,7 +22,7 @@ public void  clickOnLoginButton(){
 
 
 public void sendDataInNumberField(User user){
-    loginPageLocator.getEntryFieldByLoginByPhone().sendKeys(user.getPhone());}
+    loginPageLocator.getEntryFieldByLoginByPhone().sendKeys(user.getPhoneNumber());}
 
 
 public String getTextFromMobileMessageEntrance(){
@@ -43,7 +43,7 @@ public void sendPasswordInPasswordField(User user){
 }
 
   public void   sendInFieldForMessageVerification(User user){
-      loginPageLocator.getFieldForMessageVerification().sendKeys(user.getPhone());
+      loginPageLocator.getFieldForMessageVerification().sendKeys(user.getPhoneNumber());
   }
 
   public String getAccountNameText(){

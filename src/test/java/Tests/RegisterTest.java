@@ -26,7 +26,7 @@ public class RegisterTest extends TestRunner {
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         String name =  loginPage.getAccountNameText();
-        Assert.assertEquals(name,user.getName());
+        Assert.assertEquals(name,user.getUserName());
     }
 
     @DataProvider(name = "exist user")
@@ -43,7 +43,7 @@ public class RegisterTest extends TestRunner {
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         String name =  loginPage.getAccountNameText();
-        Assert.assertNotEquals(name,user.getName());
+        Assert.assertNotEquals(name,user.getUserName());
 
     }
 }
