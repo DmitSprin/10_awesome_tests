@@ -5,6 +5,7 @@ import Browser.BrowserFactory;
 import Browser.BrowserСhoice;
 import Pages.MainPage;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 
 
 public class TestRunner {
@@ -12,13 +13,12 @@ public class TestRunner {
 
     public static MainPage loadApplication(){
         BrowserСhoice.setDriver(BrowserFactory.CHROME_DRIVER);
-        BrowserСhoice.getDriver().get(baseUrl);
+        BrowserСhoice.getUrl(baseUrl);
 
         return  new MainPage();
     }
-    @AfterMethod(alwaysRun = true )
+    @AfterTest(alwaysRun = true )
     public void tearDown(){
-        BrowserСhoice.getDriver().manage().deleteAllCookies();
         BrowserСhoice.closeBrowser();
 
     }

@@ -11,9 +11,9 @@ import java.util.List;
 
 public class SearchTest extends TestRunner {
 
-    @DataProvider(name = "products")
+    @DataProvider(name = "products", parallel = true )
     public Object[][] products() {
-        return new Object[][]{{"iPhone"}};
+        return new Object[][]{{"iPhone"},{"iPhone"}};
 
     }
 
