@@ -7,7 +7,6 @@ import Pages.ProductPage;
 import Pages.RegisterPage;
 import UserDao.User;
 import UserDao.UserRepo;
-import Utils.JsCod;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,15 +15,13 @@ import org.testng.annotations.Test;
 
 public class OrderTests extends  TestRunner {
 
-    JsCod ob = new JsCod();
-
     @DataProvider(name = "products name")
     public Object[][] productsName() {
         return new Object[][]{{"Смартфоны", "Apple","iPhone"}};
     }
 
     @Test(dataProvider = "products name")
-    public void searchWithCatalog(String cat, String subCat, String prod){
+    public void searchWithCatalog(String cat, String subCat, String prod)  {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);
@@ -48,7 +45,6 @@ public class OrderTests extends  TestRunner {
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфоны","Apple");;
         productPage.clickOmFirstProduct();
-        ob.waitForPageLoadComplete(5);
         Thread.sleep(1000);
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()

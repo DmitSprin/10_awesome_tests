@@ -21,7 +21,7 @@ public class RegisterPageLocator {
     @FindBy(xpath = "//input[@name = 'password']")
     WebElement  registerFieldForPassword;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //button[@type='submit']")
     WebElement registerButton;
 
 }

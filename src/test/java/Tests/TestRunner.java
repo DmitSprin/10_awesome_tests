@@ -4,7 +4,6 @@ package Tests;
 import Browser.BrowserFactory;
 import Browser.BrowserСhoice;
 import Pages.MainPage;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
 
@@ -22,7 +21,6 @@ public class TestRunner {
         BrowserСhoice.closeBrowser();
 
     }
-
 
 
 }

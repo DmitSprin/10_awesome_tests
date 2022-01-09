@@ -28,6 +28,6 @@ public class ProductPageLocators {
     @FindBy(xpath = "//div[contains(@class,'grid')] //div[contains(@class,'content')]")
     WebElement orderConfirm;
 
-    @FindBy(xpath = "//button[contains(@class,'uppercase medium df buyButton')]")
+    @FindBy(xpath = "//div[@class='mt32'] //button[contains(@class, 'buyButton-')]")
     WebElement buyButton;
 }

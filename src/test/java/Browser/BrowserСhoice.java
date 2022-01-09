@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class BrowserСhoice {
 
-    // private static WebDriver driver = null;
     private static Map<Long, WebDriver> drivers = new HashMap<>();
 
 
@@ -24,7 +23,6 @@ public class BrowserСhoice {
 
     public static void setDriver(BrowserFactory Driver){
         drivers.put(Thread.currentThread().getId(), Driver.getDriver());
-        //return drivers.get(Thread.currentThread().getId());
 
     }
 

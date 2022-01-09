@@ -34,4 +34,6 @@ public class MainPageLocators {
     @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')] //div[@class='pr']")
     private  WebElement wishCount;
 
+
+
 }

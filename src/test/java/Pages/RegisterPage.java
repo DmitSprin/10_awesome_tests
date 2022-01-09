@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class RegisterPage {
+public class RegisterPage implements  BasePage {
     private RegisterPageLocator registerPageLocator = new RegisterPageLocator();
 
     RegisterPage(){

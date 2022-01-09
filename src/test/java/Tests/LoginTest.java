@@ -20,8 +20,8 @@ public class LoginTest  extends TestRunner {
 
     @Test(dataProvider = "exist user")
     public void loginByPhone(User user){
-        MainPage basePage = loadApplication();
-        LoginPage loginPage = basePage.goToLoginPage().loginByPhoneNumber(user);
+        MainPage mainPage = loadApplication();
+        LoginPage loginPage = mainPage.goToLoginPage().loginByPhoneNumber(user);
         String phone =  loginPage.getTextFromMobileMessageEntrance();
         System.out.println(phone);
         Assert.assertTrue(phone.contains(user.getPhoneNumber()));
@@ -29,8 +29,8 @@ public class LoginTest  extends TestRunner {
 
     @Test(dataProvider = "exist user")
     public void loginByEmail(User user){
-        MainPage basePage = loadApplication();
-        LoginPage loginPage =  basePage.goToLoginPage().loginByEmailNumber(user);
+        MainPage mainPage = loadApplication();
+        LoginPage loginPage =  mainPage.goToLoginPage().loginByEmailNumber(user);
         String name =  loginPage.getAccountNameText();
         Assert.assertEquals(name,user.getUserName());
 
