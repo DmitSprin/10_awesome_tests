@@ -21,7 +21,7 @@ public class OrderTests extends  TestRunner {
     }
 
     @Test(dataProvider = "products name")
-    public void searchWithCatalog(String cat, String subCat, String prod){
+    public void searchWithCatalog(String cat, String subCat, String prod)  {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);

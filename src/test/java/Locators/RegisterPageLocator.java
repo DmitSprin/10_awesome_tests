@@ -1,8 +1,12 @@
 package Locators;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Getter
+@Setter
 public class RegisterPageLocator {
 
     @FindBy(xpath = "//input[@name = 'name']")
@@ -17,16 +21,7 @@ public class RegisterPageLocator {
     @FindBy(xpath = "//input[@name = 'password']")
     WebElement  registerFieldForPassword;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //button[@type='submit']")
     WebElement registerButton;
 
-    public WebElement getRegisterFieldForName() {return registerFieldForName;}
-
-    public WebElement getRegisterFieldForPhone() {return registerFieldForPhone;}
-
-    public WebElement getRegisterFieldForEmail() {return registerFieldForEmail;}
-
-    public WebElement getRegisterFieldForPassword() {return registerFieldForPassword;}
-
-    public WebElement getRegisterButton() {return registerButton;}
 }

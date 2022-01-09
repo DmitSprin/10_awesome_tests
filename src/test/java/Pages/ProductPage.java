@@ -3,13 +3,15 @@ package Pages;
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ProductPage {
+public class ProductPage implements BasePage {
 
     ProductPageLocators productPageLocators = new ProductPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
@@ -26,21 +28,23 @@ public class ProductPage {
     }
 
     public void clickOmFirstProduct(){
-        builder.moveToElement(productPageLocators.getFirstProductOnPage()).build().perform();
         productPageLocators.getFirstProductOnPage().click();
+    }
+    public WebElement returnFirstProduct(){
+        return productPageLocators.getFirstProductOnPage();
     }
 
     public void clickOnBuyButton()  {
-        strategy.waitForElement(productPageLocators.getBuyButton());
-        BrowserСhoice.getDriver().navigate().refresh();
-        productPageLocators.getBuyButton().click();
+      WebElement waitingElement =  strategy.waitForElement(productPageLocators.getBuyButton());
+        waitingElement.click();
+
     }
 
     public String  orderConfirmText(){
        return productPageLocators.getOrderConfirm().getText();
     }
 
-    public List<String> findAllProducts() {
+    public List<String> findAllProductsAndReturnName() {
         strategy.waitForElements(productPageLocators.getProducts());
         return productPageLocators.getProducts().stream().map(WebElement::getText).toList();
     }

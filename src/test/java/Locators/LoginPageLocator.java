@@ -1,8 +1,12 @@
 package Locators;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Setter
+@Getter
 public class LoginPageLocator extends MainPageLocators {
 
     @FindBy(xpath = "//input[@name='phone']")
@@ -31,33 +35,6 @@ public class LoginPageLocator extends MainPageLocators {
 
     @FindBy(xpath = "//div[@class='full-height df fdc jcc'] //a[@class='link']")
     WebElement registeringButton;
-
-    public WebElement getEntryFieldByLoginByPhone() {
-        return entryFieldByLoginByPhone;
-    }
-
-    public WebElement getLoginByPhone() {
-        return loginByPhone;
-    }
-
-    public WebElement getLoginByEmail() {
-        return loginByEmail;
-    }
-
-    public WebElement getRegisteringButton() {
-        return registeringButton;
-    }
-
-    public WebElement getMobileMessageEntrance() {return mobileMessageEntrance;}
-
-    public WebElement getEntryFieldByLoginByEmail() {return entryFieldByLoginByEmail;}
-
-    public WebElement getPasswordFormForLogin() {return passwordFormForLogin;}
-
-    public WebElement getFieldForMessageVerification() {return fieldForMessageVerification;}
-
-    public WebElement getAccount() {return account;}
-
-
-
 }
+
+

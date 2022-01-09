@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class RegisterPage {
+public class RegisterPage implements  BasePage {
     private RegisterPageLocator registerPageLocator = new RegisterPageLocator();
 
     RegisterPage(){
@@ -16,7 +16,7 @@ public class RegisterPage {
     }
 
     public void sendNameInRegisterField(User user){
-        registerPageLocator.getRegisterFieldForName().sendKeys(user.getName());
+        registerPageLocator.getRegisterFieldForName().sendKeys(user.getUserName());
     }
 
     public void  sendEmailInRegisterField(User user){
@@ -28,7 +28,7 @@ public class RegisterPage {
     }
 
     public void sendPhoneInRegisterField(User user){
-        registerPageLocator.getRegisterFieldForPhone().sendKeys(user.getPhone());
+        registerPageLocator.getRegisterFieldForPhone().sendKeys(user.getPhoneNumber());
     }
 
     public void clickOnRegisterButton(){
