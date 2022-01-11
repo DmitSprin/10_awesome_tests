@@ -3,8 +3,6 @@ package Pages;
 import Browser.BrowserСhoice;
 import Locators.ProductPageLocators;
 import Utils.ExplicitStrategy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -27,15 +25,11 @@ public class ProductPage implements BasePage {
        return productPageLocators.getFirstProductOnPage().getText();
     }
 
-    public void clickOmFirstProduct(){
+    public void clickOnFirstProduct(){
         productPageLocators.getFirstProductOnPage().click();
     }
     public WebElement returnFirstProduct(){
         return productPageLocators.getFirstProductOnPage();
-    }
-
-    public WebElement returnDimensionOfProduct(){
-        return productPageLocators.getProductImage();
     }
 
     public void clickOnBuyButton()  {

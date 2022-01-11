@@ -25,9 +25,9 @@ public class OrderTests extends  TestRunner {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory(cat,subCat);
-        productPage.clickOmFirstProduct();
+        productPage.clickOnFirstProduct();
         productPage.clickOnBuyButton();
-        String productName =  productPage.orderConfirmText();
+        String productName = productPage.orderConfirmText();
         Assert.assertTrue(productName.contains(prod));
 
  }
@@ -44,7 +44,7 @@ public class OrderTests extends  TestRunner {
         MainPage basePage = loadApplication();
         ProductPage productPage = basePage.moveToCatalog();
         productPage.choiceСategoryAndSubCategory("Смартфоны","Apple");;
-        productPage.clickOmFirstProduct();
+        productPage.clickOnFirstProduct();
         Thread.sleep(1000);
         LoginPage loginPage = basePage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()

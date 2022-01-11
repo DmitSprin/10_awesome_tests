@@ -35,15 +35,23 @@ public class UsabilityTest extends TestRunner  {
         Assert.assertNotEquals(firstPosition.getY(),secondPosition.getY());
     }
 
+    @DataProvider(name = "products name")
+    public Object[][] productsName() {
+        return new Object[][]{{"Смартфоны", "Apple","iPhone"}};
+    }
 
-    @Test()
-    public void scaleProductImageTest(){
-        MainPage mainPage = loadApplication();
-        ProductPage productPage = mainPage.searchProductInTopSearch("samsung");
-        var  productBeforeScale =  productPage.returnFirstProduct().getSize();
-        mainPage.setMaxWindowResolution();
-        var productAfterScale = productPage.returnFirstProduct().getText();
-        Assert.assertNotEquals(productBeforeScale,productAfterScale);
+
+    @Test(dataProvider = "products name" )
+    public void scaleProductImageTest(String cat, String subCat, String pro){
+        MainPage basePage = loadApplication();
+        ProductPage productPage = basePage.moveToCatalog();
+        productPage.choiceСategoryAndSubCategory(cat,subCat);
+        var demBeforeScale = productPage.returnFirstProduct().getSize().width;
+        basePage.setMaxWindowResolution();
+        var demAfterScale = productPage.returnFirstProduct().getSize().width;
+        Assert.assertNotEquals(demAfterScale,demBeforeScale);
+
+    }
 
 
 
@@ -52,4 +60,4 @@ public class UsabilityTest extends TestRunner  {
     }
 
 
-}
+
