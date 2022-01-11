@@ -21,12 +21,12 @@ public class RegisterTest extends TestRunner {
 
     @Test(dataProvider = "new user")
     public void createNewUser(User user) {
-        MainPage basePage = loadApplication();
-        LoginPage loginPage = basePage.goToLoginPage();
+        MainPage mainPage = loadApplication();
+        LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         String name =  loginPage.getAccountNameText();
-        Assert.assertEquals(name,user.getName());
+        Assert.assertEquals(name,user.getUserName());
     }
 
     @DataProvider(name = "exist user")
@@ -38,12 +38,13 @@ public class RegisterTest extends TestRunner {
     //Negative test
     @Test(dataProvider = "exist user")
     public void createNewUserWithWrongCredential(User user){
-        MainPage basePage = loadApplication();
-        LoginPage loginPage = basePage.goToLoginPage();
+        MainPage mainPage = loadApplication();
+        LoginPage loginPage = mainPage.goToLoginPage();
         RegisterPage registerPage = loginPage.goToRegisterPage()
                 .registerNewUser(user);
         String name =  loginPage.getAccountNameText();
-        Assert.assertNotEquals(name,user.getName());
+        Assert.assertNotEquals(name,user.getUserName());
 
     }
+
 }

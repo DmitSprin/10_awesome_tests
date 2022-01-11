@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginPage  {
+public class LoginPage implements BasePage  {
 
 LoginPageLocator loginPageLocator = new LoginPageLocator();
 
@@ -22,7 +22,7 @@ public void  clickOnLoginButton(){
 
 
 public void sendDataInNumberField(User user){
-    loginPageLocator.getEntryFieldByLoginByPhone().sendKeys(user.getPhone());}
+    loginPageLocator.getEntryFieldByLoginByPhone().sendKeys(user.getPhoneNumber());}
 
 
 public String getTextFromMobileMessageEntrance(){
@@ -43,7 +43,7 @@ public void sendPasswordInPasswordField(User user){
 }
 
   public void   sendInFieldForMessageVerification(User user){
-      loginPageLocator.getFieldForMessageVerification().sendKeys(user.getPhone());
+      loginPageLocator.getFieldForMessageVerification().sendKeys(user.getPhoneNumber());
   }
 
   public String getAccountNameText(){
@@ -71,9 +71,7 @@ public LoginPage loginByEmailNumber(User dao){
 public  RegisterPage goToRegisterPage(){
     loginPageLocator.getRegisteringButton().click();
     return new RegisterPage();
+
 }
-
-
-
 
 }

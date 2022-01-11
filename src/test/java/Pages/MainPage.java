@@ -3,11 +3,13 @@ package Pages;
 import Browser.BrowserСhoice;
 import Locators.MainPageLocators;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import java.util.concurrent.TimeUnit;
 
-public class MainPage {
+public class MainPage implements BasePage{
     MainPageLocators locators = new MainPageLocators();
     Actions builder = new Actions(BrowserСhoice.getDriver());
 
@@ -20,7 +22,6 @@ public class MainPage {
 
     public void clickOnLoginButton(){
         locators.getLoginButton().click();
-        BrowserСhoice.getDriver();
     }
 
     public void clickOnWishList(){
@@ -39,16 +40,16 @@ public class MainPage {
         locators.getTopSearch().sendKeys(Keys.ENTER);
     }
 
-  public  String getUrl(){
-       return BrowserСhoice.getDriver().getCurrentUrl();
-  }
-
   public String getNumberFomWishList(){
        return locators.getWishList().getText();
   }
 
   public void clickOnScrollButton(){
         locators.getScrollButton().click();
+  }
+  public Point getPoint(){
+       WebElement el =  locators.getBasket();
+       return getElementPoint(el);
   }
 
     public MainPage click(){

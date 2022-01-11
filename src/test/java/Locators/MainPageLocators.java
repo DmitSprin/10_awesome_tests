@@ -1,9 +1,13 @@
 package Locators;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Getter
+@Setter
 public class MainPageLocators {
 
     @FindBy(xpath = "//span[@class='ml8 dashed-text']")
@@ -29,31 +33,6 @@ public class MainPageLocators {
 
     @FindBy(xpath = "//a[contains(@class,'dn aic jcc favorites')] //div[@class='pr']")
     private  WebElement wishCount;
-
-    public WebElement getScrollButton() {return scrollButton;}
-
-    public WebElement getLanguage() {return Language;}
-
-    public WebElement getTopSearch() {return topSearch;}
-
-    public WebElement getLoginButton() {
-        return loginButton;
-    }
-
-    public WebElement getWishList() {return wishList;}
-
-    public WebElement getCatalog() {
-        return catalog;
-    }
-
-    public WebElement getBasket() {
-        return basket;
-    }
-
-    public WebElement getWishCount() {return wishCount;}
-
-
-
 
 
 

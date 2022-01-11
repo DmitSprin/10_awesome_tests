@@ -14,11 +14,13 @@ public class ExplicitStrategy {
  private static  WebDriver driver = BrowserСhoice.getDriver();
  static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
 
-   public void waitForElement(WebElement element)  {
-      wait.until(ExpectedConditions.elementToBeClickable(element));
+   public WebElement waitForElement(WebElement element)  {
+       wait.until(ExpectedConditions.elementToBeClickable(element));
+       return  element;
     }
 
-    public void waitForElements(List<WebElement> element)  {
-        wait.until(ExpectedConditions.invisibilityOfAllElements(element));
+    public List<WebElement> waitForElements(List<WebElement> elements)  {
+        wait.until(ExpectedConditions.invisibilityOfAllElements(elements));
+        return elements;
     }
 }
