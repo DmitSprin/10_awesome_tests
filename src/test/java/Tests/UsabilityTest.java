@@ -1,14 +1,15 @@
 package Tests;
 
-import Pages.BasePage;
+import Browser.BrowserСhoice;
 import Pages.MainPage;
 import Pages.ProductPage;
 import Utils.JsCod;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.List;
 
 
 public class UsabilityTest extends TestRunner  {
@@ -25,7 +26,7 @@ public class UsabilityTest extends TestRunner  {
     }
 
     @Test()
-    public void testScrollerPage() throws InterruptedException {
+    public void testScrollerPage()  {
         MainPage mainPage = loadApplication();
         var firstPosition =   mainPage.getPoint();
         JsCod.scrollDown();
@@ -33,5 +34,22 @@ public class UsabilityTest extends TestRunner  {
         var secondPosition =  mainPage.getPoint();
         Assert.assertNotEquals(firstPosition.getY(),secondPosition.getY());
     }
+
+
+    @Test()
+    public void scaleProductImageTest(){
+        MainPage mainPage = loadApplication();
+        ProductPage productPage = mainPage.searchProductInTopSearch("samsung");
+        var  productBeforeScale =  productPage.returnFirstProduct().getSize();
+        mainPage.setMaxWindowResolution();
+        var productAfterScale = productPage.returnFirstProduct().getText();
+        Assert.assertNotEquals(productBeforeScale,productAfterScale);
+
+
+
+
+
+    }
+
 
 }

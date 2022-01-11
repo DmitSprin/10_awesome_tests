@@ -34,6 +34,10 @@ public class ProductPage implements BasePage {
         return productPageLocators.getFirstProductOnPage();
     }
 
+    public WebElement returnDimensionOfProduct(){
+        return productPageLocators.getProductImage();
+    }
+
     public void clickOnBuyButton()  {
       WebElement waitingElement =  strategy.waitForElement(productPageLocators.getBuyButton());
         waitingElement.click();

@@ -30,4 +30,7 @@ public class ProductPageLocators {
 
     @FindBy(xpath = "//div[@class='mt32'] //button[contains(@class, 'buyButton-')]")
     WebElement buyButton;
+
+    @FindBy(xpath = "//*[@class='short-itm-desc'] //*[@class='image']")
+    WebElement productImage;
 }
